@@ -127,6 +127,20 @@ SINT32 S32_CalculateStdDev(SINT32 *pDataPtr, UINT16 dataLength);
 void CalculateConvolution(float *pSignalPtr, UINT16 signalLength, float *pSystemPtr, UINT16 systemLength, float *pOutput);
 
 /**********************************************************************************************************************
+   Function Name: CalculateFFT
+   Purpose: Calculates the forward FFT of the passed in data.
+   Parameters:
+           pSignalReal - Pointer to the first element in the array of the real portion of the signal
+           pSignalImaginary - Pointer to the first element in the array of the imaginary portion of the signal
+           signalLength - The length of the signal
+           pOutput - Pointer to the first element in the array where the output will be stored, this array must be at
+                     least the length of the signal.
+   Return:
+           None
+**********************************************************************************************************************/
+void CalculateFFT(float *pSignalReal, float *pSignalImaginary, UINT16 signalLength, float *pOutput);
+
+/**********************************************************************************************************************
    Function Name: CalculateSlopeAndIntercept
    Purpose: Calculates the slope and intercept from the set of X and Y values passed in. Returns the Slope, and stores
             the offset in a passed in pointer.
@@ -140,5 +154,6 @@ void CalculateConvolution(float *pSignalPtr, UINT16 signalLength, float *pSystem
            float - The calculated slope
 **********************************************************************************************************************/
 float CalculateSlopeAndIntercept(SINT32 x1, SINT32 y1, SINT32 x2, SINT32 y2, float *pIntercept);
+
 
 #endif /* MATHSERVICES_H_ */
